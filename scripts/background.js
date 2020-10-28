@@ -1,15 +1,24 @@
 const bg = {
-    map: "background",
-    top: 150,
-    bottom: 500,
-    left: 0,
-    right: 800,
+    map: "intro",
+    top: 200,
+    bottom: 400,
+    left: 200,
+    right: 400,
 };
 
 const background = new Image();
-background.src = './images/background.png';
+background.src = './images/intro.png';
 
 function updateBackground() {
+     if (checkPoint0) {
+        background.src = './images/background.png';
+        bg.map = "background";
+        bg.top = 150;
+        bg.bottom = 500;
+        bg.left = 0;
+        bg.right = 800;
+        checkPoint0 = false;
+    };
     if (player.x >= 799 - player.width && bg.map === 'background') {
         background.src = './images/firecave2.png';
         bg.map = 'firecave2'
@@ -18,7 +27,7 @@ function updateBackground() {
         player.x = 10;
         npcs = [darkKnight];
     }
-    if (player.x <= 1 && bg.map === 'firecave2') {
+    else if (player.x <= 1 && bg.map === 'firecave2') {
         background.src = './images/background.png';
         bg.map = 'background'
         bg.top = 150;
@@ -30,4 +39,5 @@ function updateBackground() {
             npcs = [bigRock];
         }
     }
+   
 };

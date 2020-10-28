@@ -1,9 +1,14 @@
 const face = new Image();
-face.src = '../images/blm_face.png';
-let message1 = "Hold 'Shift' to run!";
-let message2 = "Also, go right!"
+face.src = '';
+let message1 = "";
+let message2 = "";
 
 function updateFooter() {
+    if (checkPoint0) {
+        face.src = '../images/blm_face.png';
+        message1 = "Hold 'Shift' to run!";
+        message2 = "Also, go right!";
+    };
     ctxFooter.font = "18px Arial";
     ctxFooter.fillText(message1, 60, 20);
     ctxFooter.fillText(message2, 60, 40);

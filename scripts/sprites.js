@@ -98,18 +98,18 @@ function collision (first, second){
         if (wy > hx){
             if (wy > -hx){
                 stopUp = true;
-                console.log('collision: up');
+                // console.log('collision: up');
             }else{
                 stopRight = true;
-                console.log('collision: right');
+                // console.log('collision: right');
             }
         }else{
             if (wy > -hx){
                 stopLeft = true;
-                console.log('collision: left');
+                // console.log('collision: left');
             } else {
                 stopDown = true;
-                console.log('collision: down');
+                // console.log('collision: down');
             };
         };
     }else{

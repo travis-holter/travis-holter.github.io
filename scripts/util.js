@@ -4,7 +4,7 @@ function drawSprite(img, sX, sY, sW, sH, dX, dY, dW, dH) {
 
 window.addEventListener("keydown", function (e) {
     keys[e.key] = true;
-    console.log(keys);
+    // console.log(keys);
     if (keys["ArrowUp"] || keys["ArrowRight"] || keys["ArrowDown"] || keys["ArrowLeft"]) {
         player.moving = true;
     }

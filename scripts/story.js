@@ -1,11 +1,16 @@
+// checkPoint0 is pressing spacebar to get past the intro screen
+let checkPoint0 = false;
 // checkPoint1 is talking to the Dark Knight for the first time. It should make a second NPC appear back at the starting area. 
 let checkPoint1 = false;
 
 function updateStory(){
+    if (keys[" "] && bg.map == "intro"){
+        checkPoint0 = true;
+    };
     if (darkKnight.talked){
         checkPoint1 = true;
         darkKnight.talked = false;
-    }
+    };
     if(bg.map === "firecave2" && !checkPoint1){
         message1 = "Talk to people with Space Bar";
         message2 = "";
@@ -15,5 +20,5 @@ function updateStory(){
         message1 = "You should go find Darth Vader, I hear he likes to hang out by the cliffs.";
         message2 = "";
         face.src = "../images/drk_face.png";
-    }
+    };
 }
