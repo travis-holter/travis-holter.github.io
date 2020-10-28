@@ -21,6 +21,8 @@ footer.height = 50;
 const keys = [];
 var npcs = [];
 
+var menu_go = new Audio("../sounds/menu_go.mp3");
+
 var stopUp = false;
 var stopRight = false;
 var stopDown = false;

@@ -6,6 +6,7 @@ let checkPoint1 = false;
 function updateStory(){
     if (keys[" "] && bg.map == "intro"){
         checkPoint0 = true;
+        menu_go.play();
     };
     if (darkKnight.talked){
         checkPoint1 = true;
