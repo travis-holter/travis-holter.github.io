@@ -99,17 +99,21 @@ function collision (first, second){
             if (wy > -hx){
                 stopUp = true;
                 // console.log('collision: up');
-            }else{
+                return true;
+            } else {
                 stopRight = true;
                 // console.log('collision: right');
+                return true;
             }
         }else{
             if (wy > -hx){
                 stopLeft = true;
                 // console.log('collision: left');
+                return true;
             } else {
                 stopDown = true;
                 // console.log('collision: down');
+                return true;
             };
         };
     }else{
@@ -117,5 +121,6 @@ function collision (first, second){
         stopRight = false;
         stopDown = false;
         stopLeft = false;
+        return false;
     };
 };

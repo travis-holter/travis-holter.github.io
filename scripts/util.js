@@ -9,22 +9,37 @@ window.addEventListener("keydown", function (e) {
         player.moving = true;
     }
     npcs.forEach(npc => {
-        let playerLongest;
-        if(player.width > player.height){
-            playerLongest = player.width;
-        }else{
-            playerLongest = player.height;
+        if (collision(player, npc) && keys[" "]){
+            npc.talked = true;
+            if (stopUp) {
+                npc.frameY = 0;
+            };
+            if (stopDown) {
+                npc.frameY = 3;
+            };
+            if (stopRight) {
+                npc.frameY = 1;
+            };
+            if (stopLeft) {
+                npc.frameY = 2;
+            };
         }
-        let npcLongest;
-        if(npc.width > npc.height){
-            npcLongest = npc.width;
-        }else{
-            npcLongest = npc.height;
-        }
-        if(Math.abs(player.x - npc.x) <= npcLongest + playerLongest + 5 &&
-            keys[" "]){
-                npc.talked = true;
-            }
+        // let playerLongest;
+        // if(player.width > player.height){
+        //     playerLongest = player.width;
+        // }else{
+        //     playerLongest = player.height;
+        // }
+        // let npcLongest;
+        // if(npc.width > npc.height){
+        //     npcLongest = npc.width;
+        // }else{
+        //     npcLongest = npc.height;
+        // }
+        // if(Math.abs(player.x - npc.x) <= npcLongest + playerLongest + 5 &&
+        //     keys[" "]){
+        //         npc.talked = true;
+        //     }
     })
 });
 
