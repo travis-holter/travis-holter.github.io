@@ -1,7 +1,7 @@
 const bg = {
     map: "intro",
     top: 200,
-    bottom: 400,
+    bottom: 350,
     left: 200,
     right: 400,
 };
