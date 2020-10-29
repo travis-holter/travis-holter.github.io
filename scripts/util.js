@@ -24,29 +24,63 @@ window.addEventListener("keydown", function (e) {
                 npc.frameY = 2;
             };
         }
-        // let playerLongest;
-        // if(player.width > player.height){
-        //     playerLongest = player.width;
-        // }else{
-        //     playerLongest = player.height;
-        // }
-        // let npcLongest;
-        // if(npc.width > npc.height){
-        //     npcLongest = npc.width;
-        // }else{
-        //     npcLongest = npc.height;
-        // }
-        // if(Math.abs(player.x - npc.x) <= npcLongest + playerLongest + 5 &&
-        //     keys[" "]){
-        //         npc.talked = true;
-        //     }
-    })
+    });
 });
 
 window.addEventListener("keyup", function (e) {
     delete keys[e.key];
     player.moving = false;
 });
+
+// function preLoad() {
+//     var loader = new Preloader({
+//         backgrounds: {
+//             intro: './images/intro.png',
+//             background: './images/background.png',
+//             firecave: './images/firecave2.png',
+//         },
+//         sprites: {
+//             player: './images/blackmage_m.png',
+//             darkKnight: './images/darkknight.png',
+//             vader: './images/darthvader.png',
+//         },
+//         sounds: {
+//             menu_go: './sounds/menu_go.mp3',
+//         },
+//     });
+//     loader.load();
+// };
+
+
+
+var loadCount = Object.keys(assets.backgrounds).length + 
+    Object.keys(assets.sprites).length + 
+    Object.keys(assets.sounds).length;
+
+function load(object, cb) {
+    const loaded = {};
+    Object.values(object.backgrounds).forEach( background => {
+        loaded[background] = document.createElement('img');
+        loaded[background].addEventListener('load', cb());
+        loaded[background].src = '../images' + background + '.png';
+    });
+    Object.values(object.sprites).forEach( sprite => {
+        loaded[sprite] = document.createElement('img');
+        loaded[sprite].addEventListener('load', cb());
+        loaded[sprite].src = "../images" + sprite + '.png';
+    });
+    Object.values(object.sounds).forEach( sound => {
+        loaded[sound] = document.createElement('audio');
+        loaded[sound].addEventListener('load', cb());
+        loaded[sound].src = "../sounds" + sound + '.mp3';
+    });
+};
+
+function onLoad(){
+    if (--loadCount == 0){
+        start(15);
+    }
+};
 
 let fps, fpsInterval, startTime, now, then, elapsed
 function start(fps) {
@@ -82,16 +116,7 @@ function animate() {
     }
 }
 
-start(15);
+// preLoad();
+// start(15);
 
-// This is my original animation loop, just keeping it around for refference
-
-// function animate() {
-//     ctx.clearRect(0, 0, canvas.width, canvas.height);
-//     ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
-//     drawSprite(playerSprite, player.width * player.frameX, player.height * player.frameY, player.width, player.height, player.x, player.y, player.width, player.height)
-//     movePlayer();
-//     handlePlayerFrame();
-//     requestAnimationFrame(animate);
-// }
-// animate();
+load(assets, onLoad);

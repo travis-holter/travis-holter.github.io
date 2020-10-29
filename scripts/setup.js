@@ -27,3 +27,19 @@ var stopUp = false;
 var stopRight = false;
 var stopDown = false;
 var stopLeft = false;
+
+const assets = {
+    backgrounds: {
+        intro: "intro",
+        background: "background",
+        firecave: "firecave2",
+    },
+    sprites: {
+        blm: "blackmage_m",
+        drk: "darkknight",
+        vader: "darthvader",
+    },
+    sounds: {
+        menu_go: "menu_go"
+    },
+};
