@@ -30,29 +30,8 @@ window.addEventListener("keydown", function (e) {
 window.addEventListener("keyup", function (e) {
     delete keys[e.key];
     player.moving = false;
-});
-
-// function preLoad() {
-//     var loader = new Preloader({
-//         backgrounds: {
-//             intro: './images/intro.png',
-//             background: './images/background.png',
-//             firecave: './images/firecave2.png',
-//         },
-//         sprites: {
-//             player: './images/blackmage_m.png',
-//             darkKnight: './images/darkknight.png',
-//             vader: './images/darthvader.png',
-//         },
-//         sounds: {
-//             menu_go: './sounds/menu_go.mp3',
-//         },
-//     });
-//     loader.load();
-// };
-
-
-
+})
+;
 var loadCount = Object.keys(assets.backgrounds).length + 
     Object.keys(assets.sprites).length + 
     Object.keys(assets.sounds).length;
@@ -114,9 +93,6 @@ function animate() {
         updateStory();
         updateFooter();
     }
-}
-
-// preLoad();
-// start(15);
+};
 
 load(assets, onLoad);
