@@ -33,7 +33,7 @@ window.addEventListener("keyup", function (e) {
 })
 ;
 var loadCount = Object.keys(assets.backgrounds).length + 
-    Object.keys(assets.sprites).length + 
+    Object.keys(assets.images).length + 
     Object.keys(assets.sounds).length;
 
 function load(object, cb) {
@@ -43,10 +43,10 @@ function load(object, cb) {
         loaded[background].addEventListener('load', cb());
         loaded[background].src = '../images' + background + '.png';
     });
-    Object.values(object.sprites).forEach( sprite => {
-        loaded[sprite] = document.createElement('img');
-        loaded[sprite].addEventListener('load', cb());
-        loaded[sprite].src = "../images" + sprite + '.png';
+    Object.values(object.images).forEach( image => {
+        loaded[image] = document.createElement('img');
+        loaded[image].addEventListener('load', cb());
+        loaded[image].src = "../images" + image + '.png';
     });
     Object.values(object.sounds).forEach( sound => {
         loaded[sound] = document.createElement('audio');

@@ -38,6 +38,19 @@ const darthVader = {
     moving: false,
     sprite: darthVaderSprite,
 };
+const whiteMageSprite = new Image();
+whiteMageSprite.src = './images/whitemage_f.png';
+const whiteMage = {
+    x: 500,
+    y: 400,
+    width: 32,
+    height: 48,
+    frameX: 0,
+    frameY: 0,
+    speed:6,
+    moving: false,
+    sprite: whiteMageSprite,
+};
 const bigRockSprite = new Image();
 bigRockSprite.src = './images/blank.png';
 const bigRock = {

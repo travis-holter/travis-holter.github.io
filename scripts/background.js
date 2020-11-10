@@ -10,6 +10,11 @@ const background = new Image();
 background.src = './images/intro.png';
 
 function updateBackground() {
+    if (checkPoint5) {
+        background.src = './images/game_over_bad.png';
+        playerSprite.src = './images/blank.png';
+        npcs = [];
+    };
     if (player.x <= 1 && bg.map === 'cave') {
         background.src = './images/firecave2.png';
         bg.map = 'firecave2'
@@ -17,12 +22,11 @@ function updateBackground() {
         player.y = 400;
         player.x = 790 - player.width;
         npcs = [];
-        // TODO put white mage here if player has 5 dollars
-        // if (checkPoint1) {
-        //     npcs = [bigRock, darthVader];
-        // } else {
-        //     npcs = [bigRock];
-        // }
+        if (checkPoint3 && !checkPoint4) {
+            npcs = [whiteMage];
+        } else {
+            npcs = [];
+        }
     };
     if (player.x >= 799 - player.width && bg.map === 'firecave2' && checkPoint2) {
         background.src = './images/cave.png';
@@ -51,7 +55,10 @@ function updateBackground() {
         player.y = 400;
         player.x = 10;
         npcs = [darkKnight];
-        if (checkPoint2){
+        if (checkPoint3 && !checkPoint4) {
+            npcs = [whiteMage]
+        }
+        else if (checkPoint2){
             npcs = [];
         };
     };
