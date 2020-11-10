@@ -20,11 +20,13 @@ let checkPoint5 = false;
 let checkPoint6 = false;
 
 function updateStory() {
-    if (checkPoint3 && darthVader.talked) {
-        menu_go.play();
+    if (checkPoint6) {
         message1 = "You have done well my apprentice.";
-        message2 = "Now let us rule the galaxy together!";
+        message2 = "Now let us rule the galaxy together! (good ending!)";
         face.src = "../images/darth_face.png";
+    }
+    else if (checkPoint3 && darthVader.talked && !checkPoint4) {
+        menu_go.play();
         checkPoint6 = true;
     }
     else if (checkPoint3 && !checkPoint4 && bg.map === "background") {
@@ -32,14 +34,16 @@ function updateStory() {
         message2 = "I can give him that five dollars.";
         face.src = "../images/blm_face.png";
     }
+    else if (checkPoint5) {
+        message1 = "Only a fool would trust the light!";
+        message2 = "Now I will laugh at you forever! HA HA HA HA HA HA! (bad ending!)";
+        face.src = "../images/darth_face.png";
+    }
     else if (checkPoint4 && darthVader.talked) {
         menu_go.play();
-        message1 = "Only a fool would trust the light!";
-        message2 = "Now I will laugh at you forever! HA HA HA HA HA HA!";
-        face.src = "../images/darth_face.png";
         checkPoint5 = true;
     }
-    else if (checkPoint4 && bg.map === "background") {
+    else if (checkPoint4 && bg.map === "background" || checkPoint4 && bg.map === "cave") {
         message1 = "I can't believe I got mugged!";
         message2 = "I hope Darth Vader understands...";
         face.src = "../images/blm_face.png";
@@ -66,7 +70,7 @@ function updateStory() {
         message2 = "I wonder if they need help?";
         face.src = "../images/blm_face.png"
     }
-    else if (checkPoint3 && bg.map === "cave"){
+    else if (checkPoint3 && bg.map === "cave" && !checkPoint4){
         message1 = "You found my secret lair! ... How did you do that?";
         message2 = "Oh, five dollars you say? Sure, here you go.";
         face.src = "../images/drk_face.png";

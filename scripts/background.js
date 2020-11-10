@@ -10,6 +10,11 @@ const background = new Image();
 background.src = './images/intro.png';
 
 function updateBackground() {
+    if (checkPoint6) {
+        background.src = './images/game_over_good.png';
+        playerSprite.src = './images/blank.png';
+        npcs = [];
+    };
     if (checkPoint5) {
         background.src = './images/game_over_bad.png';
         playerSprite.src = './images/blank.png';

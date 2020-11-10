@@ -38,6 +38,7 @@ const assets = {
         background: "background",
         firecave: "firecave2",
         game_over_bad: "game_over_bad",
+        game_over_good: "game_over_good",
     },
     images: {
         blm: "blackmage_m",
