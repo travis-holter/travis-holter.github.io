@@ -22,7 +22,7 @@ let checkPoint6 = false;
 function updateStory() {
     if (checkPoint6) {
         message1 = "You have done well my apprentice.";
-        message2 = "Now let us rule the galaxy together! (good ending!)";
+        message2 = "Now let us rule the galaxy together! (Good ending! Press 'r' to restart!)";
         face.src = "../images/darth_face.png";
     }
     else if (checkPoint3 && darthVader.talked && !checkPoint4) {
@@ -36,7 +36,7 @@ function updateStory() {
     }
     else if (checkPoint5) {
         message1 = "Only a fool would trust the light!";
-        message2 = "Now I will laugh at you forever! HA HA HA HA HA HA! (bad ending!)";
+        message2 = "Now I will laugh at you forever! HA HA HA HA HA HA! (Bad ending! Press 'r' to restart!)";
         face.src = "../images/darth_face.png";
     }
     else if (checkPoint4 && darthVader.talked) {

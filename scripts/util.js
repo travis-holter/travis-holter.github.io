@@ -5,9 +5,12 @@ function drawSprite(img, sX, sY, sW, sH, dX, dY, dW, dH) {
 window.addEventListener("keydown", function (e) {
     keys[e.key] = true;
     // console.log(keys);
+    if (keys["r"] && checkPoint5 || keys["r"] && checkPoint6) {
+        location.reload();
+    };
     if (keys["ArrowUp"] || keys["ArrowRight"] || keys["ArrowDown"] || keys["ArrowLeft"]) {
         player.moving = true;
-    }
+    };
     npcs.forEach(npc => {
         if (collision(player, npc) && keys[" "]){
             npc.talked = true;
